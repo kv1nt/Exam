@@ -1,0 +1,65 @@
+How to add Database into project StudentDatabase:
+1.Open your SQL Server Object Explorer.
+2.Create new database "StudentDbModels".
+3.Create 4 tables:
+--------------------------------------1-----------------------------------------
+CREATE TABLE [dbo].[People] (
+    [Id]          INT            IDENTITY (1, 1) NOT NULL,
+    [FirstName]   NVARCHAR (MAX) NOT NULL,
+    [LastName]    NVARCHAR (MAX) NOT NULL,
+    [HireDate]    DATETIME       NOT NULL,
+    [ExamDate]    DATETIME       NOT NULL,
+    [Description] NVARCHAR (250) NULL,
+    CONSTRAINT [PK_dbo.People] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+---------------------------------------2-----------------------------------------
+
+CREATE TABLE [dbo].[Exams] (
+    [Id]        INT        IDENTITY (1, 1) NOT NULL,
+    [StudentId] INT        NOT NULL,
+    [SubjectId] INT        NOT NULL,
+    [Grade]     FLOAT (53) NOT NULL,
+    [People_Id] INT        NULL,
+    CONSTRAINT [PK_dbo.Exams] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_dbo.Exams_dbo.Subjects_SubjectId] FOREIGN KEY ([SubjectId]) REFERENCES [dbo].[Subjects] ([Id]) ON DELETE CASCADE
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_SubjectId]
+    ON [dbo].[Exams]([SubjectId] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_People_Id]
+    ON [dbo].[Exams]([People_Id] ASC);
+
+
+---------------------------------------3-----------------------------------------
+
+CREATE TABLE [dbo].[SubjectProfessor] (
+    [Id]            INT            IDENTITY (1, 1) NOT NULL,
+    [SubjectId]     INT            NULL,
+    [ProfessorInfo] NVARCHAR (MAX) NULL,
+    CONSTRAINT [PK_SubjectProfessor_Id] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+---------------------------------------4-----------------------------------------
+
+CREATE TABLE [dbo].[Subjects] (
+    [Id]               INT            IDENTITY (1, 1) NOT NULL,
+    [Title]            NVARCHAR (MAX) NULL,
+    [ShortDescription] NVARCHAR (MAX) NULL,
+    CONSTRAINT [PK_dbo.Subjects] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+-----------------------------------------------------------------------------------
+
+4. After that, Open database "StudentDbModels" properties and copy ConnectionString , for example :
+
+Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=StudentDbModels;Integrated Security=True;
+Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+
+5. Paste that ConnectionString into --> EpamTask --> Models --> PeopleDbContext.cs --> string connectionString =@"--> <--- ";

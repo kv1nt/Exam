@@ -1,0 +1,36 @@
+﻿@model IEnumerable<EpamTask.Models.ProfessorSubject>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjectId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfessorInfo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjectId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfessorInfo)
+        </td>
+        <td>
+           
+            @Html.ActionLink("Details", "Details", new { id = item.SubjectId }) 
+           
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Come to students list", "Index", "Student", new { id = "" }, null)
+</p>
