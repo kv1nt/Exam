@@ -6,12 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using EpamTask.LogFiles;
 using EpamTask.Models;
 using EpamTask.Repositories.Implementation;
 
 namespace EpamTask.Controllers
 {
-
+    [LoggingFilter]
     public class ProfessorController : Controller
     {
         readonly SubjectRepository _subjectRepository = new SubjectRepository();

@@ -129,7 +129,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="LogFiles\LogControllers.txt" />
+    <Content Include="LogFiles\LogErrors.txt" />
+    <Content Include="LogFiles\LogSuccess.txt" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -157,6 +158,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LogFiles\LoggingFilterAttribute.cs" />
     <Compile Include="Models\AllModels.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\IdEntity.cs" />
@@ -171,9 +173,6 @@
     <Compile Include="Repositories\Implementation\StudentRepository.cs" />
     <Compile Include="Repositories\Implementation\SubjectRepository.cs" />
     <Compile Include="Repositories\BaseCrudMethods\CRUDMethods.cs" />
-    <Compile Include="UnitOfWork\AdoNetUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\UnitOfWorkFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

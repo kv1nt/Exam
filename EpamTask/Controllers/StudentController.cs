@@ -4,34 +4,24 @@ using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EpamTask.LogFiles;
 using EpamTask.Models;
 using EpamTask.Repositories.Implementation;
 using NLog;
 
 namespace EpamTask.Controllers
 {
+    [LoggingFilter]
     public class StudentController : Controller
     {
         readonly StudentRepository _studentRepository = new StudentRepository();
         readonly ExamRepository _examRepository = new ExamRepository();
         readonly AlIExamInfoRepository _allExamInfoRepository = new AlIExamInfoRepository();
 
-        Logger logger = LogManager.GetCurrentClassLogger();
-
         // GET: Student
         public ActionResult Index()
         {
-            try
-            {
-                ViewBag.Students = _studentRepository.GetAll();
-                logger.Info("Student controller ActionResult Index() invoked successfully", ViewBag.Students);
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex,"Error occured in Student controller Index Action");               
-            }
-            
-           
+            ViewBag.Student = _studentRepository.GetAll();         
             return View(ViewBag.Students);
         }
 

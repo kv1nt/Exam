@@ -1,0 +1,7 @@
+﻿                   --------------------- Info(2017-06-14 22:58:00.8247)DESKTOP-7QP2SJT-------------------- 
+                   
+                   Exception Type:
+                   Exception Message:
+                   Stack Trace:
+                   Additional Info:ActionResult Index () invocked succesfully EpamTask.Controllers.StudentController
+                   
