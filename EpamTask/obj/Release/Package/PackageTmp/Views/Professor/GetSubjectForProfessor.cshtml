@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EpamTask.Models.Subject>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br/>
+<br/>
+    <p>Select the exam for professor:</p>
+<select class="form-control" id="ddlSubjects">
+    @foreach (var item in ViewBag.Subjects)
+    {
+        <option value="@item.Id">@item.Title</option>
+    }
+</select>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#ddlSubjects").change(function() {
+            $(this).find("option:selected").text();
+            var selectedValueId = $(this).val();
+            document.getElementById('SubjectId').value = selectedValueId;
+            document.forms(0).submit();
+        });
+    });
+
+</script>
+<br/>
+<form action="/Professor/CreateProfessor" method="post">  
+        <hr/>
+        <div class="form-group">
+            <br/>
+            <p>Insert professor information:</p>
+            <input class="form-control" type="text" id="ProfessorInfo" name="ProfessorInfo" runat="server" value="">
+            <br/>
+            <p>Subject id:</p>
+            <input class="form-control" type="text" readonly="readonly" id="SubjectId" name="SubjectId" runat="server" value="">
+            <br/>
+        </div>
+    <input type="submit"/>
+</form>
+<br/>
+<br/>
+ <p>
+    @Html.ActionLink("Come to students list", "Index", "Student", new { id = "" }, null)
+</p>  

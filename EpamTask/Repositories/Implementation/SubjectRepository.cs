@@ -16,7 +16,7 @@ namespace EpamTask.Repositories.Implementation
         public override Subject Get(int id)
         {
             Subject subjectInfo = new Subject();
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
             using (var connection = new SqlConnection(conString))
             {
                 string commandText = @"SELECT Id, Title, ShortDescription
@@ -41,7 +41,7 @@ namespace EpamTask.Repositories.Implementation
 
         public override IEnumerable<Subject> GetAll()
         {
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
             List<Subject> subjects = new List<Subject>();
 
             using (var connection = new SqlConnection(conString))
@@ -67,7 +67,7 @@ namespace EpamTask.Repositories.Implementation
 
         public override bool Create(Subject exam)
         {
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
 
             using (SqlConnection con = new SqlConnection(conString))
             {

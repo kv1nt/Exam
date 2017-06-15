@@ -15,7 +15,7 @@ namespace EpamTask.Repositories.Implementation
 
         public override bool Create(Exam exam)
         {
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
 
             using (SqlConnection con = new SqlConnection(conString))
             {
@@ -48,7 +48,7 @@ namespace EpamTask.Repositories.Implementation
                 fgrade = float.Parse(grade);  //converte  value to float from string               
             }
 
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
             using (SqlConnection con = new SqlConnection(conString))
             {
                 con.Open();

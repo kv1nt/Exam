@@ -18,7 +18,7 @@ namespace EpamTask.Repositories.Implementation
         {
       
             //read string from app.config file with key "ConnectionString"
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
             //create list for save data from db and return as result of function
             List<People> people = new List<People>();
 
@@ -58,7 +58,7 @@ namespace EpamTask.Repositories.Implementation
 
         public override int FindIdEntity(int id)
         {
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
             using (var connection = new SqlConnection(conString))
             {
                 string commandText = @"SELECT Id FROM People WHERE Id = @PId;";
@@ -77,7 +77,7 @@ namespace EpamTask.Repositories.Implementation
         public override People Get(int id)
         {     
             People people = new People();
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
             using (var connection = new SqlConnection(conString))
             {
                 string commandText = @"SELECT Id, FirstName, LastName,
@@ -106,7 +106,7 @@ namespace EpamTask.Repositories.Implementation
 
         public override bool Create(People people)
         {
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
 
             using (SqlConnection con = new SqlConnection(conString))
             {

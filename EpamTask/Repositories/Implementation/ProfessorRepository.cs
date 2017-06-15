@@ -17,7 +17,7 @@ namespace EpamTask.Repositories.Implementation
         {
 
             //read string from app.config file with key "ConnectionString"
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
             //create list for save data from db and return as result of function
             List<ProfessorSubject> professorsList = new List<ProfessorSubject>();
 
@@ -58,7 +58,7 @@ namespace EpamTask.Repositories.Implementation
 
         public override bool Create(string professorInfo, int id)
         {
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
 
             using (SqlConnection con = new SqlConnection(conString))
             {

@@ -19,7 +19,7 @@ namespace EpamTask.Repositories.Implementation
         public override AllModels Get(int id)
         {
             AllModels allModels = new AllModels();
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
             using (var connection = new SqlConnection(conString))
             {
                 string commandText = @"SELECT exams.id AS examsId, studentId,
@@ -64,7 +64,7 @@ namespace EpamTask.Repositories.Implementation
         private int CreateStudent(AllModels allModels)
         {            
             int studentId;
-            string conString =  _context.setConnectionString();
+            string conString =  _context.GetConnectionString();
             using (SqlConnection con = new SqlConnection(conString))
             {
                 con.Open();
@@ -86,7 +86,7 @@ namespace EpamTask.Repositories.Implementation
 
         public void CreateExam(AllModels allModels)
         {
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
             var subjectId = CreateSubject(allModels);
             var studentId = CreateStudent(allModels);
             using (SqlConnection con2 = new SqlConnection(conString))
@@ -104,7 +104,7 @@ namespace EpamTask.Repositories.Implementation
 
         private int CreateSubject(AllModels allModels)
         {
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
             int subjectId;
             using (SqlConnection con1 = new SqlConnection(conString))
             {
@@ -124,7 +124,7 @@ namespace EpamTask.Repositories.Implementation
         public override void Delete(int id)
         {
            
-            var conString = _context.setConnectionString();
+            var conString = _context.GetConnectionString();
 
             using (SqlConnection con = new SqlConnection(conString))
             {

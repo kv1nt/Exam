@@ -21,7 +21,7 @@ namespace EpamTask.Controllers
         // GET: Student
         public ActionResult Index()
         {
-            ViewBag.Student = _studentRepository.GetAll();         
+            ViewBag.Studentsss = _studentRepository.GetAll();         
             return View(ViewBag.Students);
         }
 
