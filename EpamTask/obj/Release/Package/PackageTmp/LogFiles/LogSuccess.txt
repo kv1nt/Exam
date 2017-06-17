@@ -1,6 +1,6 @@
-﻿                    2017-06-15 01:22:26.9227)DESKTOP-7QP2SJTInfo:ActionResult Index () invocked succesfully EpamTask.Controllers.StudentController                 
-                    2017-06-15 01:23:45.0392)DESKTOP-7QP2SJTInfo:ActionResult Index () invocked succesfully EpamTask.Controllers.StudentController                 
-                    2017-06-15 01:27:53.5488)DESKTOP-7QP2SJTInfo:ActionResult Index () invocked succesfully EpamTask.Controllers.StudentController                 
-                    2017-06-15 01:50:22.4383)DESKTOP-7QP2SJTInfo:ActionResult Index () invocked succesfully EpamTask.Controllers.StudentController                 
-                    2017-06-15 11:23:02.2203)DESKTOP-7QP2SJTInfo:ActionResult Index () invocked succesfully EpamTask.Controllers.StudentController                 
-                    2017-06-15 11:27:02.1958)DESKTOP-7QP2SJTInfo:ActionResult Index () invocked succesfully EpamTask.Controllers.StudentController                 
+﻿                    2017-06-15 19:43:40.2257)DESKTOP-7QP2SJTInfo:ActionResult Index () invocked succesfully EpamTask.Controllers.StudentController                 
+                    2017-06-15 19:43:47.2251)DESKTOP-7QP2SJTInfo:ActionResult GetAllInfoExam () invocked succesfully EpamTask.Controllers.StudentController                 
+                    2017-06-15 19:43:51.9883)DESKTOP-7QP2SJTInfo:ActionResult Index () invocked succesfully EpamTask.Controllers.StudentController                 
+                    2017-06-15 19:43:54.6672)DESKTOP-7QP2SJTInfo:ActionResult GetSubjectForProfessor () invocked succesfully EpamTask.Controllers.ProfessorController                 
+                    2017-06-15 19:44:07.9934)DESKTOP-7QP2SJTInfo:ActionResult Index () invocked succesfully EpamTask.Controllers.StudentController                 
+                    2017-06-15 19:44:15.9844)DESKTOP-7QP2SJTInfo:ActionResult GetAllProfessors () invocked succesfully EpamTask.Controllers.ProfessorController                 

@@ -1,7 +1,1 @@
 ﻿
-                   --------------------- Info(2017-06-15 01:27:53.5488)DESKTOP-7QP2SJT-------------------- 
-                   
-                   Exception Type:
-                   Exception Message:
-                   Stack Trace:
-                  

@@ -21,7 +21,7 @@ namespace EpamTask.Controllers
         // GET: Student
         public ActionResult Index()
         {
-            ViewBag.Studentsss = _studentRepository.GetAll();         
+            ViewBag.Students = _studentRepository.GetAll();         
             return View(ViewBag.Students);
         }
 
@@ -44,7 +44,7 @@ namespace EpamTask.Controllers
             return View();
         }
 
-        // POST: Student/Create
+        // POST: AllModels/Create new Student + Exam + Subject in one query and tie all by id
         [HttpPost]
         public ActionResult Create(AllModels _allModels) 
         {
@@ -65,7 +65,7 @@ namespace EpamTask.Controllers
             return View();
         }
 
-        // POST: Student/Edit/5
+        // POST: Student's Grade/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {

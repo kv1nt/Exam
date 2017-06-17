@@ -29,7 +29,7 @@ namespace EpamTask.Repositories.Implementation
                 INNER JOIN subjects ON subjects.id = exams.subjectId;";
 
                 var command = new SqlCommand(commandText, connection);
-                command.Parameters.Add("@id", SqlDbType.Int, 10).Value = id;
+                command.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 connection.Open();
                 using (var reader = command.ExecuteReader())
                 {
@@ -78,8 +78,8 @@ namespace EpamTask.Repositories.Implementation
                 cmd.Parameters.Add("@PHireDate", SqlDbType.DateTime, 50).Value = allModels.People.HireDate;
                 cmd.Parameters.Add("@PExamDate", SqlDbType.DateTime, 50).Value = allModels.People.ExamDate;
                 cmd.Parameters.Add("@PDescription", SqlDbType.VarChar, 250).Value = allModels.People.Description;
-                studentId = Int32.Parse(cmd.ExecuteScalar().ToString());
-                cmd.ExecuteNonQuery();
+                studentId = int.Parse(cmd.ExecuteScalar().ToString());
+
             }
             return studentId;
         }
@@ -114,9 +114,9 @@ namespace EpamTask.Repositories.Implementation
                 var cmd = new SqlCommand(query, con1);
                 cmd.Parameters.Add("@STitle", SqlDbType.VarChar, 250).Value = allModels.Subject.Title;
                 cmd.Parameters.Add("@SShortDesc", SqlDbType.VarChar, 250).Value =
-                    allModels.Subject.ShortDescription;
-                subjectId = Int32.Parse(cmd.ExecuteScalar().ToString());
-                cmd.ExecuteNonQuery();
+                allModels.Subject.ShortDescription;
+                subjectId = int.Parse(cmd.ExecuteScalar().ToString());
+
             }
             return subjectId;
         }

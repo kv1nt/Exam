@@ -102,39 +102,6 @@ namespace EpamTask.Repositories.Implementation
             }
             //return result list
             return people;
-        }
-
-        public override bool Create(People people)
-        {
-            var conString = _context.GetConnectionString();
-
-            using (SqlConnection con = new SqlConnection(conString))
-            {
-
-                string query = "INSERT INTO People (FirstName, LastName, HireDate, ExamDate, Description)" +
-                               "VALUES(@PFirstName, @PLastName , @PHireDate, @PExamDate, @PDescription);";
-
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.Add("@PFirstName", SqlDbType.VarChar, 50).Value = people.FirstName;
-                cmd.Parameters.Add("@PLastName", SqlDbType.VarChar, 50).Value = people.LastName;
-                cmd.Parameters.Add("@PHireDate", SqlDbType.DateTime, 50).Value = people.HireDate;
-                cmd.Parameters.Add("@PExamDate", SqlDbType.DateTime, 50).Value = people.ExamDate;
-                cmd.Parameters.Add("@PDescription", SqlDbType.VarChar, 250).Value = people.Description;
-
-                con.Open();
-                var i = cmd.ExecuteNonQuery();
-                con.Close();
-
-                if (i >= 1)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-
-        }
+        }        
     }
 }
